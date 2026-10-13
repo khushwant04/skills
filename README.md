@@ -63,3 +63,14 @@ To inherit it in a custom agent, add to the agent's `resources`:
 ```json
 "resources": ["skill://.kiro/skills/decision-compression/SKILL.md"]
 ```
+
+To use it in another project, copy the skill folder into that workspace:
+
+```bash
+mkdir -p /path/to/project/.kiro/skills
+cp -r .kiro/skills/decision-compression /path/to/project/.kiro/skills/
+```
+
+`SKILL.md` uses the standard Agent Skills layout (YAML front matter with `name` and `description`,
+plus a `references/` folder), so the same folder can be dropped into other tools that read that
+format, such as `.claude/skills/` for Claude Code.
